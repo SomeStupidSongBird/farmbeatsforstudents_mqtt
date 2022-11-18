@@ -10,6 +10,8 @@ from sensors.PowerButton import PowerButton
 from sensors.DataButton import DataButton
 from sensors.RelaySensor import RelaySensor
 
+import data_sender
+
 data_settings = DataSettings()
 data_streamer = DataStreamer()
 data_logger = DataLogger(data_streamer)
@@ -67,6 +69,10 @@ def main():
         data_string = data_settings.build_data_string()
         if not data_string == None:
             data_streamer.send_data(data_string)
+
+        # ------------------ data sender ----------------#
+        json_data = data_sender.format_to_json(data_string)
+        data_sender.send_data(json_data)
 
         # ------------------ data logger ----------------#
         if data_settings.logging:
