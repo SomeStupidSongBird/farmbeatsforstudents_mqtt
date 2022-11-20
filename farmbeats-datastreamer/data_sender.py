@@ -1,7 +1,5 @@
 import paho.mqtt.publish as pub
 
-
-
 def send_data(data_string):
     pub.single("test",data_string,hostname = "172.22.32.140:1880")
 
