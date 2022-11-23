@@ -12,8 +12,7 @@ def send_data(data):
 def format_csv_string(dataString):
     data = dataString.split(',')
     json_data = "{"
-    json_data += "publisher:Chris pi,"
-    json_data+="date_time:"+str(data[0])+","
+    json_data+="date_time:"+str(time.time())+","
     json_data+="soil_temp:"+str(data[1])+","
     json_data+="soil_moisture:"+str(data[2])+","
     json_data+="air_temp:"+str(data[3])+","
