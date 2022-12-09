@@ -4,7 +4,6 @@ import time
 #fil = open("serverIP.txt",'r')
 server_ip = "172.22.32.140"
 topic = "test"
-payload = "Test from Chris's pi"
 def send_data(data):
     #print(server_ip)
     publish.single(topic, payload=data, hostname=server_ip)
